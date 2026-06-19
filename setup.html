@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Setup</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root{
+  --bg:#0a0a0a;
+  --surface:#141414;
+  --surface-2:#1c1c1c;
+  --line:#2a2a2a;
+  --text:#f3f2ee;
+  --muted:#8f8d87;
+  --red:#c8202a;
+  --red-dim:#5e1015;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+  padding:64px 24px 80px;
+}
+
+.wrap{max-width:760px; margin:0 auto;}
+
+/* HERO */
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  letter-spacing:.25em;
+  color:var(--red);
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+h1{
+  font-family:'Anton',sans-serif;
+  font-weight:400;
+  font-style:normal;
+  transform:skewX(-6deg);
+  font-size:clamp(56px,12vw,108px);
+  line-height:.85;
+  letter-spacing:.01em;
+  color:var(--text);
+}
+h1 span{color:var(--red);}
+
+.subhead{
+  margin-top:18px;
+  max-width:46ch;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.6;
+}
+
+.divider{
+  margin:40px 0 48px;
+  height:3px;
+  background:linear-gradient(90deg,var(--red), transparent 70%);
+}
+
+/* FEATURED PLAYER CARD (GPU) */
+.featured{
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:32px 28px;
+  display:flex;
+  align-items:center;
+  gap:24px;
+  text-decoration:none;
+  color:inherit;
+  overflow:hidden;
+  transition:border-color .25s ease, transform .25s ease;
+}
+.featured::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, var(--red-dim) 0%, transparent 45%);
+  opacity:.5;
+  pointer-events:none;
+}
+.featured:hover{
+  border-color:var(--red);
+  transform:translateY(-2px);
+}
+
+.num-badge{
+  font-family:'Anton',sans-serif;
+  font-size:72px;
+  line-height:1;
+  color:var(--red);
+  flex-shrink:0;
+  width:90px;
+  text-align:center;
+}
+
+.featured-body{position:relative; z-index:1;}
+.featured-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.2em;
+  color:var(--muted);
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.featured-name{
+  font-family:'Anton',sans-serif;
+  font-size:30px;
+  letter-spacing:.01em;
+}
+
+.underline-fit{
+  display:inline-block;
+  border-bottom:2px dashed var(--red);
+  padding-bottom:10px;
+}
+.featured-note{
+  margin-top:6px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* LINEUP LIST */
+.section-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:48px 0 14px;
+}
+
+.lineup{list-style:none; border-top:1px solid var(--line);}
+
+.row{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:16px 6px;
+  border-bottom:1px solid var(--line);
+  text-decoration:none;
+  color:inherit;
+  position:relative;
+  transition:background .2s ease, padding-left .2s ease;
+}
+.row:hover{
+  background:var(--surface-2);
+  padding-left:14px;
+}
+.row:hover .row-num{color:var(--red);}
+.row:hover .arrow{opacity:1; transform:translateX(0);}
+
+.row-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;
+  color:var(--red);
+  width:24px;
+  flex-shrink:0;
+  transition:color .2s ease;
+}
+
+.row-main{flex:1; display:flex; flex-direction:column; gap:2px;}
+.row-cat{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.row-val{font-size:16px; font-weight:600;}
+
+.arrow{
+  font-family:'JetBrains Mono',monospace;
+  color:var(--red);
+  opacity:0;
+  transform:translateX(-4px);
+  transition:opacity .2s ease, transform .2s ease;
+  flex-shrink:0;
+}
+
+/* FOOTER */
+footer{
+  margin-top:56px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  font-size:12px;
+  color:var(--muted);
+}
+footer a{color:var(--red); text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+
+@media (max-width:480px){
+  .featured{flex-direction:column; align-items:flex-start; text-align:left;}
+  .num-badge{width:auto;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">// canal twitch</div>
+  <h1>SETUP<span>.</span></h1>
+
+  <div class="divider"></div>
+
+  <a class="featured" href="#" target="_blank" rel="noopener">
+    <div class="num-badge">01</div>
+    <div class="featured-body">
+      <div class="featured-tag">GPU</div>
+      <div class="featured-name"><span class="underline-fit">RTX 4070 Ti Super</span></div>
+    </div>
+  </a>
+
+  <ul class="lineup">
+
+    <li><a class="row" href="#" target="_blank" rel="noopener">
+      <span class="row-num">02</span>
+      <span class="row-main"><span class="row-cat">CPU</span><span class="row-val">AMD Ryzen 7 7800X3D</span></span>
+      <span class="arrow">→</span>
+    </a></li>
+
+    <li><a class="row" href="#" target="_blank" rel="noopener">
+      <span class="row-num">03</span>
+      <span class="row-main"><span class="row-cat">RAM</span><span class="row-val">32GB · 6000MHz</span></span>
+      <span class="arrow">→</span>
+    </a></li>
+
+    <li><a class="row" href="#" target="_blank" rel="noopener">
+      <span class="row-num">04</span>
+      <span class="row-main"><span class="row-cat">Stocare</span><span class="row-val">2x 2TB Samsung 990 Pro</span></span>
+      <span class="arrow">→</span>
+    </a></li>
+
+    <li><a class="row" href="#" target="_blank" rel="noopener">
+      <span class="row-num">05</span>
+      <span class="row-main"><span class="row-cat">Monitor</span><span class="row-val">AOC 240Hz</span></span>
+      <span class="arrow">→</span>
+    </a></li>
+
+    <li><a class="row" href="#" target="_blank" rel="noopener">
+      <span class="row-num">06</span>
+      <span class="row-main"><span class="row-cat">Tastatură</span><span class="row-val">Razer Ornata V2</span></span>
+      <span class="arrow">→</span>
+    </a></li>
+
+    <li><a class="row" href="#" target="_blank" rel="noopener">
+      <span class="row-num">07</span>
+      <span class="row-main"><span class="row-cat">Mouse</span><span class="row-val">Razer Basilisk V3</span></span>
+      <span class="arrow">→</span>
+    </a></li>
+
+    <li><a class="row" href="#" target="_blank" rel="noopener">
+      <span class="row-num">08</span>
+      <span class="row-main"><span class="row-cat">Mousepad</span><span class="row-val">Razer Gigantus V2 3XL</span></span>
+      <span class="arrow">→</span>
+    </a></li>
+
+    <li><a class="row" href="#" target="_blank" rel="noopener">
+      <span class="row-num">09</span>
+      <span class="row-main"><span class="row-cat">Căști</span><span class="row-val">Razer BlackShark V2 Pro (2023)</span></span>
+      <span class="arrow">→</span>
+    </a></li>
+
+    <li><a class="row" href="#" target="_blank" rel="noopener">
+      <span class="row-num">10</span>
+      <span class="row-main"><span class="row-cat">Scaun</span><span class="row-val">Razer Enki</span></span>
+      <span class="arrow">→</span>
+    </a></li>
+
+  </ul>
+
+
+
+</div>
+</body>
+</html>
